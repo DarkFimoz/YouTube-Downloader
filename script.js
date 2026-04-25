@@ -1,3 +1,9 @@
+function getVideoId(url) {
+    const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+}
+
 async function download() {
     const url = document.getElementById('url').value;
     const status = document.getElementById('status');
@@ -7,7 +13,8 @@ async function download() {
         return;
     }
     
-    if (!url.includes('youtube.com') && !url.includes('youtu.be')) {
+    const videoId = getVideoId(url);
+    if (!videoId) {
         status.textContent = 'Неверная ссылка';
         return;
     }
@@ -15,22 +22,35 @@ async function download() {
     status.textContent = 'Обработка...';
     
     try {
-        const response = await fetch('/download', {
+        const apiUrl = `https://api.cobalt.tools/api/json`;
+        const response = await fetch(apiUrl, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ url })
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                url: url,
+                vCodec: 'h264',
+                vQuality: '720',
+                aFormat: 'mp3',
+                isAudioOnly: false
+            })
         });
         
-        if (!response.ok) throw new Error('Ошибка загрузки');
+        const data = await response.json();
         
-        const blob = await response.blob();
-        const downloadUrl = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = downloadUrl;
-        a.download = 'video.mp4';
-        a.click();
-        
-        status.textContent = 'Готово';
+        if (data.status === 'redirect' || data.status === 'stream') {
+            const downloadUrl = data.url;
+            const a = document.createElement('a');
+            a.href = downloadUrl;
+            a.download = 'video.mp4';
+            a.target = '_blank';
+            a.click();
+            status.textContent = 'Готово';
+        } else {
+            status.textContent = 'Ошибка';
+        }
     } catch (error) {
         status.textContent = 'Ошибка';
     }

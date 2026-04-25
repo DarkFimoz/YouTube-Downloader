@@ -2,20 +2,6 @@
 
 Минималистичный веб-сервис для скачивания видео с YouTube.
 
-## Установка
-
-```bash
-npm install
-```
-
-## Запуск
-
-```bash
-npm start
-```
-
-Откройте браузер на `http://localhost:3000`
-
 ## Использование
 
 1. Вставьте ссылку на YouTube видео
@@ -29,9 +15,7 @@ npm start
 ## Технологии
 
 - HTML/CSS/JavaScript
-- Node.js
-- Express
-- ytdl-core
+- Cobalt API
 
 ## Лицензия
 
