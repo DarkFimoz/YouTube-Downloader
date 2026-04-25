@@ -13,14 +13,7 @@ async function download() {
     }
     
     status.textContent = 'Перенаправление...';
-    
-    const videoId = url.match(/(?:v=|youtu\.be\/)([^&\s]+)/)?.[1];
-    if (!videoId) {
-        status.textContent = 'Неверная ссылка';
-        return;
-    }
-    
-    window.open(`https://www.y2mate.com/youtube/${videoId}`, '_blank');
+    window.open(`https://loader.to/api/button/?url=${encodeURIComponent(url)}&format=mp4&color=green`, '_blank');
     status.textContent = 'Готово';
 }
 
