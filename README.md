@@ -35,4 +35,4 @@ npm start
 
 ## Лицензия
 
-MIT
+GPL-3.0

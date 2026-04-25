@@ -8,7 +8,7 @@
   },
   "keywords": ["youtube", "downloader", "video"],
   "author": "DarkFimoz",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "dependencies": {
     "express": "^4.18.2",
     "ytdl-core": "^4.11.5"

@@ -35,4 +35,4 @@ Demo available at: https://darkfimoz.github.io/YouTube-Downloader/
 
 ## License
 
-MIT
+GPL-3.0
