@@ -6,16 +6,15 @@ Minimalist web service for downloading YouTube videos.
 
 1. Paste YouTube video link
 2. Click "Download"
-3. Wait for file download
+3. Select quality on the opened page
 
 ## GitHub Pages
 
-Demo available at: https://darkfimoz.github.io/YouTube-Downloader/
+Demo: https://darkfimoz.github.io/YouTube-Downloader/
 
 ## Technologies
 
 - HTML/CSS/JavaScript
-- Cobalt API
 
 ## License
 

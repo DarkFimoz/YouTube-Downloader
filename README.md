@@ -6,16 +6,15 @@
 
 1. Вставьте ссылку на YouTube видео
 2. Нажмите "Скачать"
-3. Дождитесь загрузки файла
+3. Выберите качество на открывшейся странице
 
 ## GitHub Pages
 
-Демо доступно по адресу: https://darkfimoz.github.io/YouTube-Downloader/
+Демо: https://darkfimoz.github.io/YouTube-Downloader/
 
 ## Технологии
 
 - HTML/CSS/JavaScript
-- Cobalt API
 
 ## Лицензия
 
